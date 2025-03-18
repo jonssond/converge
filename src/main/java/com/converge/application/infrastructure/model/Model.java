@@ -19,4 +19,8 @@ public class Model {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+
+    public Model(Long id) {
+        this.id = id;
+    }
 }

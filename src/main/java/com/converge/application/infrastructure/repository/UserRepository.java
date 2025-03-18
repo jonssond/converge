@@ -1,4 +1,9 @@
 package com.converge.application.infrastructure.repository;
 
-public interface UserRepository {
+import com.converge.application.infrastructure.model.user.UserJpa;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends CrudRepository<UserJpa, Long> {
 }
