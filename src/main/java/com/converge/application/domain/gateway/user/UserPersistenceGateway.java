@@ -1,4 +1,8 @@
 package com.converge.application.domain.gateway.user;
 
-public class UserPersistenceGateway {
+import com.converge.application.domain.entity.user.User;
+
+public interface UserPersistenceGateway {
+
+    public User createUser(User user);
 }
