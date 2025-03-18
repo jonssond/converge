@@ -7,10 +7,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class DomainEntity<ID> {
-    private ID id;
-    private ID createdBy;
-    private ID updatedBy;
+public class DomainEntity {
+    private Long id;
+    private Long createdBy;
+    private Long updatedBy;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    public DomainEntity(Long id) {
+        this.id = id;
+    }
 }

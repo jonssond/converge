@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
 @Setter
 @RequiredArgsConstructor
 public class Event<ID> extends DomainEntity<ID> {
-    private String eventName;
+    private String name;
     private String description;
-    private LocalDateTime eventDate;
+    private LocalDateTime dateAndTime;
+    private Double price;
 
 }
