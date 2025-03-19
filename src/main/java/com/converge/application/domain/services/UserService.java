@@ -15,6 +15,6 @@ public class UserService implements IUserService{
     @Override
     public UserDTO createUser(User user) {
         User entity = this.persistenceGateway.createUser(user);
-        return new UserDTO(entity);
+        return UserDTO.fromEntity(entity);
     }
 }

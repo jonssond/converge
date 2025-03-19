@@ -15,7 +15,6 @@ public class User extends DomainEntity {
     private String email;
     private String phone;
     private String nationalId;
-    private LocalDateTime birthDate;
 
     public User(
             Long id,
@@ -23,8 +22,7 @@ public class User extends DomainEntity {
             String lastName,
             String email,
             String phone,
-            String nationalId,
-            LocalDateTime birthDate
+            String nationalId
     ) {
         super(id);
         this.firstName = firstName;
@@ -32,6 +30,5 @@ public class User extends DomainEntity {
         this.email = email;
         this.phone = phone;
         this.nationalId = nationalId;
-        this.birthDate = birthDate;
     }
 }
