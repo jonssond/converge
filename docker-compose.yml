@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:17-bookworm
     container_name: converge_db
     restart: always
     environment:
@@ -11,6 +11,8 @@ services:
       POSTGRES_DB: convergedb
     ports:
       - "5432:5432"
+    expose:
+      - "5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

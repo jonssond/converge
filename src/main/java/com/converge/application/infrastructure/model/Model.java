@@ -1,22 +1,26 @@
-package com.converge.application.domain.entity;
+package com.converge.application.infrastructure.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 @Getter
 @Setter
-@RequiredArgsConstructor
-public class DomainEntity {
+@NoArgsConstructor
+public class Model {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Long createdBy;
     private Long updatedBy;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public DomainEntity(Long id) {
+    public Model(Long id) {
         this.id = id;
     }
 }
