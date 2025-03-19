@@ -1,11 +1,16 @@
 package com.converge.application.infrastructure.controller.user.dtos;
 
 import com.converge.application.domain.entity.user.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@RequiredArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserDTO {
     private Long id;
     private String firstName;
@@ -13,16 +18,21 @@ public class UserDTO {
     private String email;
     private String phone;
     private String nationalId;
-    private LocalDateTime birthDate;
 
-    public UserDTO(User user) {
-        this.id = user.getId();
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
-        this.email = user.getEmail();
-        this.phone = user.getPhone();
-        this.nationalId = user.getNationalId();
-        this.birthDate = user.getBirthDate();
+    public UserDTO(
+            Long id,
+            String firstName,
+            String lastName,
+            String email,
+            String phone,
+            String nationalId
+    ) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.nationalId = nationalId;
     }
 
     public User toEntity(){
@@ -32,8 +42,18 @@ public class UserDTO {
                 this.lastName,
                 this.email,
                 this.phone,
-                this.nationalId,
-                this.birthDate
+                this.nationalId
         );
+    }
+
+    public static UserDTO fromEntity(User user) {
+            return new UserDTO(
+                    user.getId(),
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getEmail(),
+                    user.getPhone(),
+                    user.getNationalId()
+            );
     }
 }
